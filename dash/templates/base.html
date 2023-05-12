@@ -6,9 +6,14 @@
   <title>UNIVESP - PI</title>
   <!-- Inclua os arquivos CSS do Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script>
+    function escola() {
+        var escola = $('#escolas').find(":selected").val();
+        location.href = '/dados/escolas/'+escola;
+    }
+  </script>
 </head>
 <body>
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Estatísticas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,42 +41,21 @@
   </nav>
 
   <div class="container mt-5">
-    <h1>Bem-vindo ao site analítico dos dados SARESP 2022!</h1>
-    <p>Aqui você encontrará dados, análises e gráficos estatísticos.</p>
-    <div class="row mt-5">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Dados</h5>
-            <p class="card-text">Explore nossa coleção de dados estatísticos.</p>
-            <a href="#" class="btn btn-primary">Ver Dados</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Análises</h5>
-            <p class="card-text">Obtenha insights valiosos com nossas análises estatísticas.</p>
-            <a href="#" class="btn btn-primary">Ver Análises</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Gráficos</h5>
-            <p class="card-text">Visualize os dados em gráficos interativos.</p>
-            <a href="#" class="btn btn-primary">Ver Gráficos</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% block content %}
+
+    {% endblock %}
   </div>
 
   <!-- Inclua os arquivos JavaScript do Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    {% block charts %}
+
+    {% endblock %}
+  </script>
 </body>
 </html>

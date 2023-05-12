@@ -1,7 +1,9 @@
 from django.urls import path
 
-from .views import IndexView
+from . import views
 
 urlpatterns = [
-    path('dash', IndexView.as_view(), name='dash'),
+    path('', views.IndexView, name='dados-home'),
+    path('escolas/<int:codesc>', views.EscolaView, name='escola-home'),
+    path('escolas', views.EscolasView, name='escolas-home')
 ]
