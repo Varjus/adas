@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <select onchange="escola()" id="escolas">
+        <option disabled SELECTED>Selecione uma escola</option>
+        {% for escola in escolas %}
+            <option value="{{ escola.codesc }}">{{ escola.escola }}</option>
+        {% endfor %}
+    </select>
+    {% block dados_escola %}
+    {% endblock %}
+{% endblock %}

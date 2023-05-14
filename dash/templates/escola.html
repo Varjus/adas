@@ -1,0 +1,40 @@
+{% extends 'escolas.html' %}
+{% block charts %}
+  const ctx = document.getElementById('myChart');
+  const labels = ['% Acer. Port.','% Acer. Mat.', '% Acer. Cie.'];
+
+  const data = {
+    labels: labels,
+    datasets: [
+        {% for serie in escola %}
+            {
+                label: '{{ serie.serie_ano }}',
+                data: [{{ serie.porc_cert_lp }}, {{ serie.porc_cert_mat }}, {{ serie.porc_cert_cie }}],
+            },
+        {% endfor %}
+    ]
+    };
+
+  new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Dados da Escola: '
+          }
+        }
+    },
+  });
+
+{% endblock %}
+{% block dados_escola %}
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+{% endblock %}
