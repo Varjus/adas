@@ -7,6 +7,10 @@ def IndexView(request):
     return render(request, 'index.html')
 
 def EscolasView(request):
+    escolano = DadosSaresp.objects.raw("SELECT DISTINCT ano_saresp, escola, 1 as id_reg FROM dados_saresp")
+    return render(request, 'escolas.html', {'escolano': escolano})
+
+def EscolasView(request):
     escolas = DadosSaresp.objects.raw("SELECT DISTINCT codesc, escola, 1 as id_reg FROM dados_saresp")
     return render(request, 'escolas.html', {'escolas': escolas})
 

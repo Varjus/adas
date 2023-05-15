@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
     <select onchange="escola()" id="escolas">
-        <option disabled SELECTED>Selecione uma escola</option>
+        <option enable SELECTED>Selecione uma escola</option>
         {% for escola in escolas %}
             <option value="{{ escola.codesc }}">{{ escola.escola }}</option>
         {% endfor %}
     </select>
+
+    <select onchange="escolano()" id="escolano">
+        <option enable SELECTED>Selecione uma escola</option>
+        {% for escolano in escolano %}
+            <option value="{{ escolano.ano_saresp }}">{{ escolano.escolano }}</option>
+        {% endfor %}
+    </select>
+
     {% block dados_escola %}
     {% endblock %}
 {% endblock %}
