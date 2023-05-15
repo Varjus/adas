@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
+<<<<<<< HEAD
     <select onchange="escola()" id="escolas">
         <option enable SELECTED>Selecione uma escola</option>
+=======
+    <h3>Para visualizar os dados de uma escola selecione-a no campo abaixo: </h3><br>
+    <select onchange="escola()" id="escolas" class="form-control">
+        <option disabled SELECTED>Selecione uma escola</option>
+>>>>>>> origin/frontend
         {% for escola in escolas %}
             <option value="{{ escola.codesc }}">{{ escola.escola }}</option>
         {% endfor %}
