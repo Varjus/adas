@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,13 +11,47 @@
     <title>ADAS - ANALISE DE DADOS SARESP - SP</title>
 </head>
 
-<img src="static\img\sp.png" alt="RANKING DAS ESCOLAS DO MUNICIO DE PINDAMONHANGABA" width="50" height="40">
+<img src="..\static\img\sp.png" alt="RANKING DAS ESCOLAS DO MUNICIO DE PINDAMONHANGABA" width="50" height="40">
 
-<H1>RANKING DAS ESCOLAS DO MUNICIO DE PINDAMONHANGABA</H1>
+
 
 <body>
-    <title>RANKING DAS ESCOLAS DO MUNICIPIO DE PINDAMONHANGABA</title>   
+    <h2">VISÃO GERAL DAS ESCOLAS DO MUNICIPIO DE PINDAMONHANGABA - SP</h2>
 </body>
+
+<div class="row justify-content-center mt-0">
+    <div class="col-md-12 border-secondy justify-content-start">
+        <div class="col-md-8 mx-auto">
+
+            <div class="tableContainer">
+                <table class="fullTable">
+                    <thead>
+                        <tr>                
+                            <th>ESCOLA</th>
+                            <th>ANO SARESP</th>
+                            <th>SERIE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dados_saresp in object_list %}
+                        <tr>
+                            <td>{{ dados_saresp.escola }}</td>
+                            <td>{{ dados_saresp.ano_saresp }}</td>
+                            <td>{{ dados_saresp.serie_ano }}</td>
+                        </tr>
+                        {% empty %}
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+
+        </div>
+    </div><!-- Fim row-->
+  </div><!-- Fim do Conteúdo principal -->
+
+</div>
 
 
 </html>
+
+{% endblock %}
