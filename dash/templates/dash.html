@@ -19,39 +19,27 @@
     <h2">VISÃO GERAL DAS ESCOLAS DO MUNICIPIO DE PINDAMONHANGABA - SP</h2>
 </body>
 
-<div class="row justify-content-center mt-0">
-    <div class="col-md-12 border-secondy justify-content-start">
-        <div class="col-md-8 mx-auto">
-
-            <div class="tableContainer">
-                <table class="fullTable">
-                    <thead>
-                        <tr>                
-                            <th>ESCOLA</th>
-                            <th>ANO SARESP</th>
-                            <th>SERIE</th>
+                <table class="table table-striped">
+                    <tread class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>                
+                            <th scope="col">ESCOLA</th>
+                            <th scope="col">ANO SARESP</th>
+                            <th scope="col">SERIE</th>
                         </tr>
                     </thead>
+                    {% for value in List %}
                     <tbody>
-                        {% for dados_saresp in object_list %}
                         <tr>
-                            <td>{{ dados_saresp.escola }}</td>
-                            <td>{{ dados_saresp.ano_saresp }}</td>
-                            <td>{{ dados_saresp.serie_ano }}</td>
+                            <th scope="row">{{ value.id_reg }}</td>
+                            <td>{{ value.escola }}</td>    
+                            <td>{{ value.ano_saresp }}</td>
+                            <td>{{ value.serie_ano }}</td>
                         </tr>
-                        {% empty %}
                     </tbody>
                     {% endfor %}
                 </table>
-            </div>
-
-        </div>
-    </div><!-- Fim row-->
-  </div><!-- Fim do Conteúdo principal -->
-
-</div>
-
-
+            
 </html>
 
 {% endblock %}
