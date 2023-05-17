@@ -6,6 +6,7 @@
   <title>UNIVESP - PI</title>
   <!-- Inclua os arquivos CSS do Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
   <script>
     function escola() {
         var escola = $('#escolas').find(":selected").val();
@@ -25,10 +26,10 @@
           <a class="nav-link" href="{% url 'dados-home' %}">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'escolas-home' %}">Escolas</a>
+          <a class="nav-link" href="{% url 'escolas-dash' %}">Médias das Escolas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Análises</a>
+          <a class="nav-link" href="{% url 'escolas-home' %}">Gráficos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Gráficos</a>
@@ -59,8 +60,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <script>
-    {% block charts %}
+    {% block js %}
 
     {% endblock %}
   </script>

@@ -6,7 +6,7 @@ from .models import DadosSaresp
 ##Funções globais
 
 def pegaEscolas():
-    escolas = DadosSaresp.objects.raw("SELECT DISTINCT codesc, escola, 1 as id_reg FROM dados_saresp")
+    escolas = DadosSaresp.objects.raw("SELECT DISTINCT codesc, escola, 1 as id_reg FROM dados_saresp ORDER BY escola")
     return escolas
 
 def IndexView(request):
@@ -21,14 +21,6 @@ def EscolaView(request, codesc):
     escola = DadosSaresp.objects.raw("SELECT serie_ano, AVG(porc_cert_lp) AS porc_cert_lp, AVG(porc_cert_mat) AS porc_cert_mat, AVG(porc_cert_cie) AS porc_cert_cie, 1 as id_reg FROM dados_saresp WHERE codesc = " + str(codesc) + " GROUP BY serie_ano")
     return render(request, 'escola.html', {'escola': escola, 'escolas': escolas})
 
-#def DashView(request):
- #   escolas = pegaEscolas()
-  #  escola = DadosSaresp.objects.raw("SELECT serie_ano, AVG(porc_cert_lp) AS porc_cert_lp, AVG(porc_cert_mat) AS porc_cert_mat, AVG(porc_cert_cie) AS porc_cert_cie, 1 as id_reg FROM dados_saresp WHERE codesc = " + str(codesc) + " GROUP BY serie_ano")
-   # return render(request, 'dash.html')
-
-def dash(request):
-    List = DadosSaresp.objects.all()
-    busca = request.GET.get('search')
-    if busca:
-        List = DadosSaresp.objects.filter(escola_icontais = busca) 
-    return render(request, 'dash.html', {'List':List})
+def DashView(request):
+    escolas = DadosSaresp.objects.raw("SELECT codesc, escola, serie_ano, ano_saresp, AVG(porc_cert_lp) AS porc_cert_lp, AVG(porc_cert_mat) AS porc_cert_mat, AVG(porc_cert_cie) AS porc_cert_cie, 1 as id_reg FROM dados_saresp WHERE codesc IN (SELECT DISTINCT codesc FROM dados_saresp) GROUP BY serie_ano, escola, ano_saresp, codesc")
+    return render(request, 'dash.html', {'escolas': escolas})
