@@ -24,3 +24,6 @@ def EscolaView(request, codesc):
 def DashView(request):
     escolas = DadosSaresp.objects.raw("SELECT codesc, escola, serie_ano, ano_saresp, AVG(porc_cert_lp) AS porc_cert_lp, AVG(porc_cert_mat) AS porc_cert_mat, AVG(porc_cert_cie) AS porc_cert_cie, 1 as id_reg FROM dados_saresp WHERE codesc IN (SELECT DISTINCT codesc FROM dados_saresp) GROUP BY serie_ano, escola, ano_saresp, codesc")
     return render(request, 'dash.html', {'escolas': escolas})
+
+def SobreView(request):
+    return render(request, 'sobre.html')
