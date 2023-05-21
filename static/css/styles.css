@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgb(244, 248, 163), #FFFFE0, white);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;  
+    grid-template-areas: "l r" "f f";
+    grid-template-columns: 1fr;
+
+}
+
+footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+  };
