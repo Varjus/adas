@@ -1,0 +1,40 @@
+{% extends 'anoRanking.html' %}
+{% block js %}
+  const ctx = document.getElementById('myChart');
+  const labels = ['% Acer. Mat.'];
+
+  const data = {
+    labels: labels,
+    datasets: [
+        {% for serie in ano %}
+            {
+                label: '{{ serie.serie_ano }}',
+                data: [{{ serie.porc_cert_mat }}],
+            },
+        {% endfor %}
+    ]
+    };
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Dados da Escola: '
+          }
+        }
+    },
+  });
+
+{% endblock %}
+{% block dados_escola %}
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+{% endblock %}

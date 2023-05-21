@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block js %}
     $(document).ready(function() {
             $('#dados').dataTable({
@@ -17,17 +18,29 @@
     });
     });
 {% endblock %}
+
 {% block content %}
+
+<style>
+    body{
+
+    background: linear-gradient(grey,#FFFFE0, white);
+        width: 100%;
+        font-size: 20px;
+        text-align: justify;
+
+    }
+</style>
+
+<h1>HISTÓRICO DE MATEMÁTICA</h1>
+
     <table class="table table-striped" id="dados">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ESCOLA</th>
                 <th scope="col">ANO SARESP</th>
                 <th scope="col">SERIE</th>
-                <th scope="col">MÉD. PORT.</th>
                 <th scope="col">MÉD. MAT.</th>
-                <th scope="col">MÉD. CIE.</th>
-                <th scope="col">MÉD. TOTAL</th>
             </tr>
         </thead>
         <tbody>
@@ -36,12 +49,47 @@
                     <td scope="row">{{ dados.escola }}</td>
                     <td scope="row">{{ dados.ano_saresp }}</td>
                     <td scope="row">{{ dados.serie_ano }}</td>
-                    <td scope="row">{{ dados.porc_cert_lp|floatformat:2 }}%</td>
                     <td scope="row">{{ dados.porc_cert_mat|floatformat:2 }}%</td>
-                    <td scope="row">{{ dados.porc_cert_cie|floatformat:2 }}%</td>
-                    <td scope="row">{{ media }}</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+{% endblock %}
+
+{% block rodape %}
+
+<style>
+  h5{
+  position: absolute;
+  bottom: 40px;
+  background-color: grey,#FFFFE0, white;
+  color:black;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  }
+  h6{
+  position: absolute;
+  bottom: 0;
+  background-color: grey,#FFFFE0, white;
+  color:black;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  
+  }
+</style>
+<br><br><br>
+<p>
+  <h5 class="lead">ADAS - ANÁLISE DE DADOS SARESP</h5>
+  <br>
+</p>
+<br>
+<p>
+    <br>
+    <h6>Desenvolvido por Alunos UNIVESP</h6>
+</p>
+
+<br>
+
 {% endblock %}

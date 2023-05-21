@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <select onchange="ano_saresp()" id="ano">
+        <option disabled SELECTED>Selecione o ano</option>
+        <option enable SELECTED>Selecione o ano</option>
+        {% for ano_saresp in ano %}
+            <option value="{{ ano_saresp.codesc }}">{{ ano_saresp.ano_saresp }}</option>
+        {% endfor %}
+    </select>
+
+    <div>
+        <div class="btn">
+           <a href="..\..\" class="btn btn-primary">Retornar a Home</a>
+        </div>
+    </div>
+
+    {% block dados_escola %}
+    {% endblock %}
+{% endblock %}
