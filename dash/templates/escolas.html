@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<h2>MÉDIA DOS ANOS DE 2019, 2021 E 2022</h2>
     <select onchange="escola()" id="escolas">
         <option disabled SELECTED>Selecione uma escola</option>
         <option enable SELECTED>Selecione uma escola</option>
@@ -19,10 +21,55 @@
     {% endblock %}
 
     
+    
 {% endblock %}
+
 
 {% block rodape %}
 
+<style>
+  h5{
+  position: relative;
+  bottom: auto;
+  background: linear-gradient(#FFFFE0, white);
+  color: black;
+  
+ 
+  text-align: center;
+  }
+  h6{
+  position: relative;
+  bottom:auto;
+  background: linear-gradient(#FFFFE0, white);
+  color: black;
+
+ 
+  text-align: center;
+  }
+
+  img{
+    position: relative;
+    bottom:auto;
+    
+  }
+
+  footer{
+    background: linear-gradient(#FFFFE0, white);
+  }
+  
+</style>
+
+<p>
+<h5>ADAS - ANÁLISE DE DADOS SARESP</h5>
+</p>
+
+<p>
+<h6>Desenvolvido por Alunos UNIVESP</h6>
+</p>
 
 
+<div class="col-md-4 mx-auto text-center">
+  <img src="{% static 'img/univesp.png' %}" class="float-center" alt="mx-auto">
+</div>
 {% endblock %}
+

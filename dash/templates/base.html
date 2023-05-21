@@ -9,7 +9,6 @@
   <!-- Inclua os arquivos CSS do Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <script>
     function escola() {
         var escola = $('#escolas').find(":selected").val();
@@ -17,37 +16,8 @@
     }
   </script>
 
-  <!--<style>
-    footer{
-    position: absolute;
-    bottom: 0;
-    background-color: grey,#FFFFE0, white;
-    color: #FFF;
-    width: 100%;
-    height: 100%;    
-    text-align: center;
-    }
-
-    body{
-      background: linear-gradient(grey,#FFFFE0, white);
-        width: 100%;
-        height: max-content;  
-        font-size: 20px;
-        text-align: justify;
-    }
-
-    h6{
-      position: absolute;
-    bottom: 0;
-    background-color:grey,#FFFFE0, white;
-    color: #FFF;
-    width: 100%;
-    
-    text-align: center;
-    }
-  </style>-->
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100" style="background: linear-gradient(rgb(244, 248, 163), #FFFFE0, white);">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{% url 'dados-home' %}">Estatísticas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,18 +47,16 @@
     {% endblock %}
   </main>
 
-  {% block rodape %}
+
   
-  <footer class="styles">
-  <p>
-      <h2>ADAS - ANÁLISE DE DADOS SARESP</h2>
-  </p>
-  <p>
-      <h3>Desenvolvido por Alunos UNIVESP</h3>
-  </p>
-   
+  <footer class="footer container mt-5 bg-dark">
+
+    {% block rodape %}
+
+    {% endblock %}
+
   </footer>
-  {% endblock %}
+ 
 
   <!-- Inclua os arquivos JavaScript do Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

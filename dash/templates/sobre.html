@@ -8,7 +8,7 @@
 
 <style>
     body {
-        background: linear-gradient(grey,#FFFFE0, white);
+        background: linear-gradient(#FFFFE0, white);
         width: 100%;
         font-size: 20px;
         text-align: justify;
@@ -23,7 +23,7 @@
     p{
     position: absolute;
     bottom: 0;
-    background-color: grey, #FA8072, white;
+    background: linear-gradient(#FFFFE0, white);
     color: #FFF;
     width: 100%;
     
@@ -40,24 +40,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <h1>ANÁLISE DE DADOS SARESP</h1>
+    <h1>SOBRE ADAS</h1>
 
     <br>
 
-    Esta monografia tem como objeto de estudo o ensino público das unidades de ensino da cidade de Pindamonhangaba,
-    através da análise dos resultados obtidos do Sistema de Avaliação de Rendimento Escolar do Estado de São Paulo
-    (SARESP), entre os anos de 2019 e 2022. A não disponibilização destes resultados de forma simples e concisa, pode
-    dificultar na elaboração de planos de ensino voltados para uma comunidade específica, não atendendo assim as suas
-    demandas e defasagens. Essa situação agravou-se mais durante o período pandêmico de COVID-19, onde foi adotado o
-    sistema de tele aulas, acentuando as desigualdades entre as classes sociais, visto que muitos alunos nem sequer
-    tinham computadores e acesso a rede no dia a dia. Para tanto, esse trabalho tem como objetivo desenvolver um
-    software WEB que permita que os usuários, gestores e até mesmo pais de alunos, tenham acesso as informações sobre a
-    evolução das unidades de ensino aos longos dos anos, facilitando na elaboração de medidas corretivas para ajudar os
-    seus alunos. Para o desenvolvimento foi utilizado uma pesquisa exploratória junto aos membros da comunidade, mais
-    especificamente com pais de alunos matriculados na rede, servindo de conceituação e aprofundamento da problemática,
-    e a utilização técnica do design thinking para a elaboração da solução. Para o protótipo foi utilizada a linguagem
-    de programação Python e para a interface visual, foi empregada a linguagem de estilo CSS (Cascading Style Sheets).
+    <h2>ADAS - ANÁLISE DE DADOS SARESP</h2>
 
+    <br>
+
+    Esta aplicação foi desenvolvida pelos alunos dos cursos de Ciência de Dados e Engenharia da Computação como forma de
+    avaliação da disciplina de Projeto Integrador IV da faculdade Virtual do Estado de São Paulo (UNIVESP).
+    Como o tema norteador foi proposto aos alunos desenvolverem uma aplicação contendo análise de dados em escala utilizando
+    conjunto de dados existentes, aprendizagem de máquina e ainda preparar uma interface para a visualização dos resultados
+    Diante disso, a equipe procurou junto a comunidade possíveis problemas ou dificuldades que eles enfrentem no cotidiano,
+    aonde foi escolhido os desafios da educação básica nas unidades estaduais de ensino da cidade de Pindamonhangaba, região
+    metropolitana do estado de São Paulo.
+    Um dos meios de avaliação do ensino ofertadas pela Secretaria de Educação se dá através do Sistema de Avaliação de
+    Rendimento Escolar do Estado de São Paulo (SARESP), ao qual é aplicado anualmente em toda rede, para os alunos do 9º do
+    Ensino Fundamental e 3° ano do Ensino Médio.
+    Esses dados são ofertados pela instituição de maneira pública, porém de modo não compilado, englobando listas extensas
+    de informações sem a disponibilização de filtros, o que dificulta na consulta pontual do rendimento de uma cidade
+    especifica ou de uma unidade de ensino em particular.
+    A não disponibilização destes resultados de forma simples e concisa, pode dificultar na elaboração de planos de ensino
+    voltados para uma comunidade, não atendendo assim as suas demandas e defasagens. Essa situação agravou-se mais durante o
+    período pandêmico de COVID-19, onde foi adotado o sistema de tele aulas, acentuando as desigualdades entre as classes
+    sociais, visto que muitos alunos nem sequer tinham computadores e acesso a rede no dia a dia.
+    Diante disso, o objetivo desse trabalho foi desenvolver um software WEB que permita que os usuários, gestores e até
+    mesmo pais de alunos, tenham acesso as informações sobre a evolução das unidades de ensino aos longos dos anos,
+    facilitando na elaboração de medidas corretivas para ajudar os seus alunos.
+    Para tanto, foi tomado como base os anos entre 2019 a 2022, aos quais englobam todo o período de pré e pós pandemia de
+    COVID-19, onde é possível acompanhar a média das notas de cada escola, possibilitando acompanhar a evolução das notas e
+    o pareamento de informações com outras escolas da região.
 
 
 
@@ -70,21 +83,53 @@
 
 {% block rodape %}
 
-<br><br>
+<style>
+  h5{
+  position: relative;
+  bottom: auto;
+  background: linear-gradient(#FFFFE0, white);
+  color: black;
+  
+ 
+  text-align: center;
+  }
+  h6{
+  position: relative;
+  bottom:auto;
+  background: linear-gradient(#FFFFE0, white);
+  color: black;
+
+ 
+  text-align: center;
+  }
+
+  img{
+    position: relative;
+    bottom:auto;
+    
+  }
+
+  footer{
+    background: linear-gradient(#FFFFE0, white);
+  }
+  
+</style>
 
 <p>
-    <span class="lead">ADAS - ANÁLISE DE DADOS SARESP</span>
-    <br>
-    <span>Desenvolvido por Alunos UNIVESP</span>
+<h5>ADAS - ANÁLISE DE DADOS SARESP</h5>
 </p>
 
-<br>
+<p>
+<h6>Desenvolvido por Alunos UNIVESP</h6>
+</p>
+
 
 <div class="col-md-4 mx-auto text-center">
-    <img src="{% static 'img/univesp.png' %}" height="mx-auto" class="float-center" alt="mx-auto">
-
-  </div>
+  <img src="{% static 'img/univesp.png' %}" class="float-center" alt="mx-auto">
+</div>
 {% endblock %}
+
+  
 
 
 
