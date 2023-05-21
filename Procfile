@@ -1,1 +1,1 @@
-web: gunicorn adas.wsgi --log-file -
+web: gunicorn 'adas.wsgi'
