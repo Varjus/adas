@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block js %}
+    $(document).ready(function() {
+            $('#dados').dataTable({
+                    "language": {
+                        "lengthMenu": "Mostrar _MENU_ registros por página",
+                        "zeroRecords": "Nenhum registrado encontrado!",
+                        "info": "Mostrando _PAGE_ de _PAGES_ páginas (_MAX_ registros)",
+                        "infoEmpty": "Ainda não há nada por aqui!",
+                        "infoFiltered": "(filtrado de _MAX_ registros)",
+                        "search": "Pesquisar: ",
+                        "paginate": {
+                            "previous": "Voltar",
+                            "next": "Próxima"
+                        }
+                    }
+    });
+    });
+{% endblock %}
+
+{% block content %}
+
+<!--<style>
+    body{
+
+    background: linear-gradient(grey,#FFFFE0, white);
+        width: 100%;
+        font-size: 20px;
+        text-align: justify;
+
+    }
+</style>-->
+
+<h1>MÉDIA GERAL DAS MATÉRIAS</h1>
+
+    <table class="table table-striped" id="dados">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ESCOLA</th>
+                <th scope="col">ANO SARESP</th>
+                <th scope="col">SERIE</th>
+                <th scope="col">MÉD. MAT</th>
+                <th scope="col">MÉD. LP</th>
+                <th scope="col">MÉD. CIE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dados in escolas %}
+                <tr>
+                    <td scope="row">{{ dados.escola }}</td>
+                    <td scope="row">{{ dados.ano_saresp }}</td>
+                    <td scope="row">{{ dados.serie_ano }}</td>
+                    <td scope="row">{{ dados.porc_cert_mat|floatformat:2 }}%</td>
+                    <td scope="row">{{ dados.porc_cert_lp|floatformat:2 }}%</td>
+                    <td scope="row">{{ dados.porc_cert_cie|floatformat:2 }}%</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+{% block rodape %}
+
+<style>
+  h5{
+  position: relative;
+  bottom: auto;
+  background: linear-gradient(#FFFFE0, white);
+  color: black;
+  
+ 
+  text-align: center;
+  }
+  h6{
+  position: relative;
+  bottom:auto;
+  background: linear-gradient(#FFFFE0, white);
+  color: black;
+
+ 
+  text-align: center;
+  }
+
+  img{
+    position: relative;
+    bottom:auto;
+    
+  }
+
+  footer{
+    background: linear-gradient(#FFFFE0, white);
+  }
+  
+</style>
+
+<p>
+<h5>ADAS - ANÁLISE DE DADOS SARESP</h5>
+</p>
+
+<p>
+<h6>Desenvolvido por Alunos UNIVESP</h6>
+</p>
+
+
+<div class="col-md-4 mx-auto text-center">
+  <img src="{% static 'img/univesp.png' %}" class="float-center" alt="mx-auto">
+</div>
+{% endblock %}
