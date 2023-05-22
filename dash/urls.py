@@ -10,5 +10,7 @@ urlpatterns = [
 
    ## path('dados/ano/<int:codesc>', views.anosView, name='escola-home'),
     path('dash', views.DashView, name='escolas-dash'),
+    path('dashlp', views.DashPView, name='escolas-dashp'),
+    path('dashc', views.DashCView, name='escolas-dashc'),
     path('sobre', views.SobreView, name='sobre'),
 ]
